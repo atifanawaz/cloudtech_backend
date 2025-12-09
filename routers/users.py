@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from models import UserData
 from database import db
 
@@ -11,5 +11,5 @@ def submit_data(user_data: UserData):
 
 @router.get("/all")
 def get_all_data():
-    data = list(db.users.find({}, {"_id": 0}))  # Hide MongoDB _id
+    data = list(db.users.find({}, {"_id": 0}))
     return {"users_data": data}
