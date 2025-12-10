@@ -1,4 +1,3 @@
-# Updated for CORS support
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from routers import users
@@ -6,8 +5,8 @@ from routers import users
 app = FastAPI(title="CloudTech Backend")
 
 origins = [
-    "http://localhost:3000",
-    "https://your-frontend.vercel.app",
+    "http://localhost:3000",           # for local testing
+    "https://cloudtech-frontend-final.vercel.app"  # frontend deployed URL
 ]
 
 app.add_middleware(
@@ -19,7 +18,3 @@ app.add_middleware(
 )
 
 app.include_router(users.router, prefix="/api")
-
-@app.get("/")
-def home():
-    return {"message": "CloudTech API is running"}
