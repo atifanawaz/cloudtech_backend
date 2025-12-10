@@ -14,3 +14,4 @@ def submit_data(user_data: UserData):
 def get_all_data():
     data = list(db.users.find({}, {"_id": 0}))
     return {"users_data": data}
+
